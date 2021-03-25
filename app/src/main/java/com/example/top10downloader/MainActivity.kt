@@ -8,6 +8,26 @@ import java.net.URL
 
 private const val TAG = "MainActivity"
 
+class FeedEntry {
+
+    var name: String = ""
+    var artist: String = ""
+    var realeaseDate: String = ""
+    var summary: String = ""
+    var imageURL: String = ""
+
+    override fun toString(): String {
+       return  """
+            name: $name
+            artist: $artist
+            realease Date: $realeaseDate
+            summary: $summary
+            url: $imageURL
+            
+        """.trimIndent()
+    }
+}
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,9 +63,13 @@ class MainActivity : AppCompatActivity() {
                 return rssFeed
             }
 
-            override fun onPostExecute(result: String?) {
+            override fun onPostExecute(result: String) {
                 super.onPostExecute(result)
-                Log.d(TAG, "onPostExecute: parameter is $result")
+//                Log.d(TAG, "onPostExecute: parameter is $result")
+                val parseApplications = ParseApplications()
+
+                parseApplications.parse(result)
+
             }
 
         }
