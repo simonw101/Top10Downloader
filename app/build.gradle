@@ -7,6 +7,12 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
+    buildFeatures {
+
+        viewBinding true
+
+    }
+
     defaultConfig {
         applicationId "com.example.top10downloader"
         minSdkVersion 16

@@ -37,7 +37,7 @@ class ParseApplications {
 
             while (eventType != XmlPullParser.END_DOCUMENT) {
 
-                val tagName = xpp.name.toLowerCase() //TODO: We should use the safe call operator
+                val tagName = xpp.name?.toLowerCase()
 
                 when (eventType) {
 
