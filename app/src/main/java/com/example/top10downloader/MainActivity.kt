@@ -38,6 +38,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private val downloadData by lazy {  DownLoadData(this, binding.xmlListView) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -45,11 +47,14 @@ class MainActivity : AppCompatActivity() {
 
         Log.d(TAG, "onCreate:  called")
 
-        val downloadData = DownLoadData(this, binding.xmlListView)
-
         downloadData.execute("http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=10/xml")
 
         Log.d(TAG, "onCreate:  done")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        downloadData.cancel(true)
     }
 
     companion object {
