@@ -5,9 +5,7 @@ import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
 import android.widget.ListView
-import androidx.appcompat.app.ActionBar
 import com.example.top10downloader.databinding.ActivityMainBinding
 import java.net.URL
 import kotlin.properties.Delegates
